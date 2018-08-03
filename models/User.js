@@ -33,6 +33,10 @@ const userSchema = new Schema({
     kondisiKesehatan:{
         type:String
     },
+    kepercayaanId:{
+        type:Schema.Types.ObjectId,
+        ref:'kepercayaan'
+    },
     role:{
         type:String,
         required:true
