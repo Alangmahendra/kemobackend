@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const aliranSchema = new Schema({
-    namaAliran:{
+    nama:{
         type:String
     }
 },{timestamps:{}})

@@ -4,11 +4,15 @@ const Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
 const scheduleSchema = new Schema({
-    patient:{
+    userId:{
         type:Schema.Types.ObjectId,
         ref:'userModel'
     },
     ScheduleName:{
+        type:String,
+        required:true
+    },
+    detail:{
         type:String,
         required:true
     },
