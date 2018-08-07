@@ -12,6 +12,12 @@ mongoose.connect('mongodb://localhost/kemodijakarta')
 
 const Admin = require('./routes/admin')
 const User = require('./routes/users')
+const Agama = require('./routes/Agama')
+const Akomodasi = require('./routes/Akomodasi')
+const Aliran = require('./routes/Aliran')
+const Homestay = require('./routes/Homestay')
+const Rumahsakit = require('./routes/Rumahsakit')
+const Schedule = require('./routes/Schedule')
 
 const app = express();
 
@@ -29,6 +35,13 @@ cors({credentials: true, origin: true})
 
 app.use('/api/admin', Admin);
 app.use('/api/user', User);
+app.use('/api/agama', Agama);
+app.use('/api/akomodasi', Akomodasi);
+app.use('/api/aliran', Aliran);
+app.use('/api/homestay', Homestay);
+app.use('/api/rumahsakit', Rumahsakit);
+app.use('/api/schedule', Schedule);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

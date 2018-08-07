@@ -36,7 +36,7 @@ class Agama {
     }
 
     static findOne(req,res){
-        Model.findById(req.params.id,(err,rows)=>{
+        Model.findById(req.params.id).populate('aliranId').exec((err,rows)=>{
             if(!err){
                 res.status(200).json({message:`data agama with id ${req.params.id} has been finded`,data:rows})
             }else{

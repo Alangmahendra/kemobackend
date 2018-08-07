@@ -24,8 +24,8 @@ module.exports = {
     },
 
     isPatient: (req,res,next)=>{
-        const patient = req.user._id
-        if(patient === req.body.patient){
+        const user = req.user._id
+        if(user === req.body.userId){
             next()
         }else{
             res.status(500).json({
