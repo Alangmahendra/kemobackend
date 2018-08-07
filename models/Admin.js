@@ -4,7 +4,7 @@ const Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
 const adminSchema = new Schema({
-    adminName :{
+    name :{
         type:String,
         required:true
     },

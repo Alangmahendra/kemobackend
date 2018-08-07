@@ -32,6 +32,46 @@ class User {
         })
     }
 
+    static userFormSignup(req,res){
+        let tanngalString = req.body.tanggalLahir.toISOString().split('-').join('')
+        let serial = tanngalString.split('').splice(2,6).join('')
+        let generatePass = req.body.namaDepan+serial
+        console.log(generatePass)
+        bcrypt.genSalt(10,(err,salt)=>{
+            if(!err){
+                bcrypt.hash(generatePass,salt,(err,hash)=>{
+                    if(!err){
+                        let obj ={
+                            email:req.body.email,
+                            username:req.body.username,
+                            alamat:req.body.alamat,
+                            notelp:req.body.notelp,
+                            namaDepan:req.body.namaDepan,
+                            namaBelakang:req.body.namaBelakang,
+                            tanggalLahir:req.body.tanggalLahir,
+                            jenisAsuransi:req.body.jenisAsuransi,
+                            emergencyContact:req.body.emergencyContact,
+                            kondisiKesehatan:req.body.kondisiKesehatan,
+                            AgamaId:req.body.AgamaId,
+                            password:hash
+                        }
+                        Model.create(obj,(err,rows)=>{
+                            if(!err){
+                                res.status(200).json({message:'user has been created',data:rows})
+                            }else{
+                                res.status(500).json({message:err})
+                            }
+                        })
+                    }else{
+                        res.status(500).json({message:err})
+                    }
+                })
+            }else{
+                res.status(500).json({message:err})
+            }
+        })
+    }
+
 
 }
 

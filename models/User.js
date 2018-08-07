@@ -19,23 +19,29 @@ const userSchema = new Schema({
         type:String
     },
     notelp:{
-        type:Number
-    },
-    nama:{
         type:String
+    },
+    namaDepan:{
+        type:String
+    },
+    namaBelakang:{
+        type:String
+    },
+    tanggalLahir:{
+        type:Date
     },
     jenisAsuransi:{
         type:String
     },
     emergencyContact:{
-        type:Number
+        type:String
     },
     kondisiKesehatan:{
         type:String
     },
-    kepercayaanId:{
+    AgamaId:{
         type:Schema.Types.ObjectId,
-        ref:'kepercayaan'
+        ref:'agama'
     },
     role:{
         type:String,

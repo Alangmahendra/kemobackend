@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const KepercayaanSchema = new Schema({
+const agamaSchema = new Schema({
     nama:{
         type:String
     },
@@ -11,6 +11,6 @@ const KepercayaanSchema = new Schema({
     }
 },{timestamps:{}})
 
-const kepercayaanModel = mongoose.model('kepercayaan',KepercayaanSchema)
+const agamaModel = mongoose.model('agama',agamaSchema)
 
-module.exports = kepercayaanModel
+module.exports = agamaModel

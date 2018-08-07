@@ -7,24 +7,26 @@ require('dotenv').config()
 
 class Admin {
     static signupAdmin(req, res) {
-        bcrypt.genSalt(10, function (err, hash) {
-            if (!err) {
-                let obj = {
-                    adminName: req.body.adminName,
-                    password: hash,
-                    role: req.body.role || 'admin'
-                }
-                Model.create(obj, (err, admin) => {
-                    if (err) {
-                        res.status(500).json({ message: err })
-                    } else {
-                        res.status(200).json({ message: 'admin account has been created', data: admin })
+        bcrypt.genSalt(10, function (err, salt) {
+            bcrypt.hash(req.body.password, salt, (err, hash) => {
+                if (!err) {
+                    let obj = {
+                        adminName: req.body.adminName,
+                        password: hash,
+                        role: req.body.role || 'admin'
                     }
-                })
-            } else {
-                //console.log(err)
-                res.status(500).json({ message: err })
-            }
+                    Model.create(obj, (err, admin) => {
+                        if (err) {
+                            res.status(500).json({ message: err })
+                        } else {
+                            res.status(200).json({ message: 'admin account has been created', data: admin })
+                        }
+                    })
+                } else {
+                    //console.log(err)
+                    res.status(500).json({ message: err })
+                }
+            })
         })
     }
 
@@ -63,22 +65,26 @@ class Admin {
     }
 
     static addUser(req, res) {
-        bcrypt.genSalt(10, (err, hash) => {
-            if (!err) {
-                let obj = {
-                    email: req.body.email,
-                    username: req.body.username,
-                    password: hash,
-                    role: req.body.role || 'user'
-                }
-                UserModel.create(obj, (err, user) => {
-                    if (err) {
-                        res.status(500).json({ message: err })
-                    } else {
-                        res.status(200).json({ message: `user with ${user.username} username has been created`, data: user })
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(req.body.password, salt, (err, hash) => {
+                if (!err) {
+                    let obj = {
+                        email: req.body.email,
+                        username: req.body.username,
+                        password: hash,
+                        role: req.body.role || 'user'
                     }
-                })
-            }
+                    UserModel.create(obj, (err, user) => {
+                        if (err) {
+                            res.status(500).json({ message: err })
+                        } else {
+                            res.status(200).json({ message: `user with ${user.username} username has been created`, data: user })
+                        }
+                    })
+                } else {
+                    res.status(500).json({ message: err })
+                }
+            })
         })
     }
 

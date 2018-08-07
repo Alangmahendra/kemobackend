@@ -2,32 +2,44 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const AkomodasiSchema = new Schema({
-    fasilitas:{
-        type:String
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'userModel'
     },
-    kebersihan:{
-        type:String
+    homstay: {
+        type: Schema.Types.ObjectId,
+        ref: 'homstay'
     },
-    transportasi:{
-        type:String
+    rumahSakit: {
+        type: Schema.Types.ObjectId,
+        ref: 'rumahsakit'
     },
-    kunjunganKeluarga:{
-        type:Boolean
+    fasilitas: {
+        type: String
     },
-    hiburan:{
-        type:String
+    kebersihan: {
+        type: String
     },
-    konseling:{
-        type:Boolean
+    transportasi: {
+        type: String
     },
-    lainLain:{
-        type:String
+    kunjunganKeluarga: {
+        type: Boolean
     },
-    dietDanSuplemen:{
-        type:String
+    hiburan: {
+        type: String
+    },
+    konseling: {
+        type: Boolean
+    },
+    lainLain: {
+        type: String
+    },
+    dietDanSuplemen: {
+        type: String
     }
-},{timestamps:{}})
+}, { timestamps: {} })
 
-const akomodasiModel = mongoose.model('akomodasi',AkomodasiSchema)
+const akomodasiModel = mongoose.model('akomodasi', AkomodasiSchema)
 
 module.exports = akomodasiModel
