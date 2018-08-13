@@ -11,7 +11,7 @@ class Admin {
             bcrypt.hash(req.body.password, salt, (err, hash) => {
                 if (!err) {
                     let obj = {
-                        adminName: req.body.adminName,
+                        name: req.body.name,
                         password: hash,
                         role: req.body.role || 'admin'
                     }
@@ -31,7 +31,7 @@ class Admin {
     }
 
     static signinAdmin(req, res) {
-        Model.findOne({ adminName: req.body.adminName }, (err, admin) => {
+        Model.findOne({ name: req.body.name }, (err, admin) => {
             if (err) {
                 //console.log(err)
                 res.status(500).json({ message: err })
