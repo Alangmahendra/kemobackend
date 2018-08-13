@@ -6,7 +6,7 @@ require('dotenv').config()
 class User {
 
     static userSignin(req, res) {
-        Model.findOne({ username: req.body.username }, (err, user) => {
+        Model.findOne({ email: req.body.email }, (err, user) => {
             if (err) {
                 res.status({ message: err })
             } else {
@@ -14,7 +14,7 @@ class User {
                     if (!err) {
                         let payload = {
                             _id: user._id,
-                            username: user.username,
+                            email: user.email,
                             role: user.role
                         }
                         jwt.sign(payload,process.env.SECRET_KEY, (err, token) => {

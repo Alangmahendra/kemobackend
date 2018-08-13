@@ -35,8 +35,11 @@ const AkomodasiSchema = new Schema({
     lainLain: {
         type: String
     },
-    dietDanSuplemen: {
+    suplemen: {
         type: String
+    },
+    vegetarian:{
+        type:Boolean
     }
 }, { timestamps: {} })
 

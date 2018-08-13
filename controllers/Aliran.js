@@ -15,7 +15,7 @@ class Aliran {
     }
 
     static remove(req,res){
-        Model.findByIdAndRemove(req.params.id,{new:true},(err,rows)=>{
+        Model.findByIdAndRemove(req.params.id,(err,rows)=>{
             if(!err){
                 res.status(200).json({message:`data with id ${req.params.id} has been removed`,data:rows})
             }else{

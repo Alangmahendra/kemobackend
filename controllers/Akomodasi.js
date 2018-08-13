@@ -12,7 +12,8 @@ class Akomodasi{
             kunjunganKeluarga:req.body.kunjunganKeluarga,
             hiburan:req.body.hiburan,
             konseling:req.body.konseling,
-            dietDanSuplement:req.body.dietDanSuplement,
+            suplement:req.body.suplement,
+            vegetarian:req.body.vegetarian,
             lainLain:req.body.lainLain
         }
         Model.create(obj,(err,rows)=>{

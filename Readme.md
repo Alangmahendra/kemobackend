@@ -21,7 +21,7 @@
 |----------------------------------|---------|-----------------------------|
 |/api/agama/all                    |GET      |FIND ALL                     |
 |/api/agama/:id                    |GET      |FIND one                     |
-|/api/agama/add                    |POST     |ADD ALL                      |
+|/api/agama/add                    |POST     |ADD ONE                      |
 |/api/agama/:id                    |PUT      |UPDATE ALL                   |
 |/api/agama/:id                    |DELETE   |DELETE ONE                   |
 
