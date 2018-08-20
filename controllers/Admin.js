@@ -16,10 +16,10 @@ class Admin {
                         role: req.body.role || 'admin'
                     }
                     Model.create(obj, (err, admin) => {
-                        if (err) {
-                            res.status(500).json({ message: err })
-                        } else {
+                        if (!err) {
                             res.status(200).json({ message: 'admin account has been created', data: admin })
+                        } else {
+                            res.status(500).json({ message: err })
                         }
                     })
                 } else {
@@ -47,12 +47,12 @@ class Admin {
                             role: admin.role
                         }
                         jwt.sign(payload, process.env.SECRET_KEY, (err, token) => {
-                            if (err) {
+                            if (!err) {
                                 //console.log(err)
-                                res.status(500).json({ message: err })
+                                res.status(200).json({ message: 'login', data: token })
                             } else {
                                 //console.log('===>',token)
-                                res.status(200).json({ message: 'login', data: token })
+                                res.status(500).json({ message: err })
                             }
                         })
                     } else {
