@@ -18,6 +18,7 @@ const Aliran = require('./routes/Aliran')
 const Homestay = require('./routes/Homestay')
 const Rumahsakit = require('./routes/Rumahsakit')
 const Schedule = require('./routes/Schedule')
+const BukuTamu = require('./routes/BukuTamu')
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use('/api/aliran', Aliran);
 app.use('/api/homestay', Homestay);
 app.use('/api/rumahsakit', Rumahsakit);
 app.use('/api/schedule', Schedule);
+app.use('/api/bukutamu', BukuTamu);
 
 
 // catch 404 and forward to error handler

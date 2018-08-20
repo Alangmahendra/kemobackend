@@ -79,3 +79,12 @@
 |/api/schedule/updateSchedule/:id            |PUT       |update user schedule           |
 |/api/schedule/scheduleStatus/:id            |PUT       |update user schedule status    |
 |/api/schedule/userSchedule                  |GET       |find user schedule             |
+
+
+
+# REST API BUKUTAMU
+
+|Route                                       |HTTP      |Description                    |
+|--------------------------------------------|----------|-------------------------------|
+|/api/bukutamu/add                           |POST      |Add schedule                   |
+|/api/bukutamu/list                          |GET       |find all schedule              |
