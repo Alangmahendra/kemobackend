@@ -15,8 +15,8 @@
 
 |Route                               |HTTP     |Description                  |
 |------------------------------------|---------|-----------------------------|
-|/api/user/signin                    |POST     |Sign in with                 |
-|/api/user/signupform                |POST     |Sign in with                 |
+|/api/user/signin                    |POST     |Sign in                      |
+|/api/user/signupform                |POST     |Sign up                      |
 
 
 
@@ -48,6 +48,7 @@
 |/api/aliran/:id                       |GET       |FIND one aliran              |
 |/api/aliran/:id                       |PUT       |update one aliran            |
 |/api/aliran/:id                       |DELETE    |delete one aliran            |
+|/api/aliran/agamaId/:id               |GET       |Find all aliran by agamaId   |
 
 # REST API HOMESTAY
 

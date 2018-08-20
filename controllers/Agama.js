@@ -3,8 +3,7 @@ const Model = require('../models/Agama')
 class Agama {
     static create(req,res){
         let obj = {
-            nama:req.body.nama,
-            aliranId:req.body.aliranId
+            nama:req.body.nama
         }
         Model.create(obj,(err,rows)=>{
             if(!err){
@@ -47,8 +46,7 @@ class Agama {
 
     static update(req,res){
         let obj = {
-            nama:req.body.nama,
-            aliranId:req.body.aliranId
+            nama:req.body.nama
         }
         Model.findByIdAndUpdate(req.params.id,obj,{new:true},(err,rows)=>{
             if(!err){

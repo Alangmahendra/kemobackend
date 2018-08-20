@@ -3,7 +3,8 @@ const Model = require('../models/Aliran')
 class Aliran {
     static create(req,res){
         let obj = {
-            nama:req.body.nama
+            nama:req.body.nama,
+            agamaId:req.body.agamaId
         }
         Model.create(obj,(err,rows)=>{
             if(!err){
@@ -25,7 +26,7 @@ class Aliran {
     }
 
     static findAll(req,res){
-        Model.find({},(err,rows)=>{
+        Model.find({}).populate('agamaId').exec((err,rows)=>{
             if(!err){
                 res.status(200).json({message:'All aliran Data',data:rows})
             }else{
@@ -35,11 +36,21 @@ class Aliran {
     }
 
     static findOne(req,res){
-        Model.findById(req.params.id,(err,rows)=>{
+        Model.findById(req.params.id).populate('agamaId').exec((err,rows)=>{
             if(!err){
                 res.status(200).json({message:`data aliran with id ${req.params.id} has been finded`,data:rows})
             }else{
+                res.status(500).json({message:err})
+            }
+        })
+    }
 
+    static findByAgama(req,res){
+        Model.find({agamaId:req.body.agamaId}).populate('agamaId').exec((err,rows)=>{
+            if(!err){
+                res.status(200).json({message:'aliran find by AgamaId',data:rows})
+            }else{
+                res.status(500).json({message:err})
             }
         })
     }
@@ -47,6 +58,7 @@ class Aliran {
     static update(req,res){
         let obj = {
             nama:req.body.nama,
+            agamaId:req.body.agamaId
         }
         Model.findByIdAndUpdate(req.params.id,obj,{new:true},(err,rows)=>{
             if(!err){

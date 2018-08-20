@@ -53,6 +53,7 @@ class User {
                             emergencyContact:req.body.emergencyContact,
                             kondisiKesehatan:req.body.kondisiKesehatan,
                             AgamaId:req.body.AgamaId,
+                            AliranId:req.body.AliranId,
                             password:hash
                         }
                         Model.create(obj,(err,rows)=>{

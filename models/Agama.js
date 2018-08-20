@@ -4,10 +4,6 @@ const Schema = mongoose.Schema
 const agamaSchema = new Schema({
     nama:{
         type:String
-    },
-    aliranId:{
-        type:Schema.Types.ObjectId,
-        ref:'aliran'
     }
 },{timestamps:{}})
 

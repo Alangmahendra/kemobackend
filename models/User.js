@@ -44,6 +44,10 @@ const userSchema = new Schema({
         type:Schema.Types.ObjectId,
         ref:'agama'
     },
+    AliranId:{
+        type:Schema.Types.ObjectId,
+        ref:'aliran'
+    },
     role:{
         type:String,
         required:true
