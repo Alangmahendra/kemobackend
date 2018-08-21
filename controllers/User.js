@@ -33,10 +33,6 @@ class User {
     }
 
     static userFormSignup(req,res){
-        let tanngalString = req.body.tanggalLahir.toISOString().split('-').join('')
-        let serial = tanngalString.split('').splice(2,6).join('')
-        let generatePass = req.body.namaDepan+serial
-        console.log(generatePass)
         bcrypt.genSalt(10,(err,salt)=>{
             if(!err){
                 bcrypt.hash(generatePass,salt,(err,hash)=>{

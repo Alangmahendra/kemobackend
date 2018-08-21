@@ -25,7 +25,7 @@ class Agama {
     }
 
     static findAll(req,res){
-        Model.find({}).populate('aliranId').exec((err,rows)=>{
+        Model.find({},(err,rows)=>{
             if(!err){
                 res.status(200).json({message:'All agama Data',data:rows})
             }else{
@@ -35,7 +35,7 @@ class Agama {
     }
 
     static findOne(req,res){
-        Model.findById(req.params.id).populate('aliranId').exec((err,rows)=>{
+        Model.findById(req.params.id,(err,rows)=>{
             if(!err){
                 res.status(200).json({message:`data agama with id ${req.params.id} has been finded`,data:rows})
             }else{
