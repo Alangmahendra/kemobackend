@@ -40,13 +40,14 @@ const userSchema = new Schema({
     kondisiKesehatan:{
         type:String
     },
-    AgamaId:{
-        type:Schema.Types.ObjectId,
-        ref:'agama'
+    Agama:{
+        type:String
     },
-    AliranId:{
-        type:Schema.Types.ObjectId,
-        ref:'aliran'
+    Aliran:{
+       type:String
+    },
+    gender:{
+        type:String
     },
     role:{
         type:String,

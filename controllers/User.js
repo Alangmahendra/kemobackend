@@ -48,8 +48,8 @@ class User {
                             jenisAsuransi:req.body.jenisAsuransi,
                             emergencyContact:req.body.emergencyContact,
                             kondisiKesehatan:req.body.kondisiKesehatan,
-                            AgamaId:req.body.AgamaId,
-                            AliranId:req.body.AliranId,
+                            Agama:req.body.Agama,
+                            Aliran:req.body.Aliran,
                             password:hash
                         }
                         Model.create(obj,(err,rows)=>{
