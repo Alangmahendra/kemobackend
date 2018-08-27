@@ -40,6 +40,9 @@ const AkomodasiSchema = new Schema({
     },
     vegetarian:{
         type:Boolean
+    },
+    budget:{
+        type:String
     }
 }, { timestamps: {} })
 

@@ -14,7 +14,8 @@ class Akomodasi{
             konseling:req.body.konseling,
             suplement:req.body.suplement,
             vegetarian:req.body.vegetarian,
-            lainLain:req.body.lainLain
+            lainLain:req.body.lainLain,
+            budget:req.body.budget
         }
         Model.create(obj,(err,rows)=>{
             if(!err){
