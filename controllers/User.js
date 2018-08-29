@@ -36,7 +36,7 @@ class User {
     static userFormSignup(req, res) {
         bcrypt.genSalt(10, (err, salt) => {
             if (!err) {
-                bcrypt.hash(generatePass, salt, (err, hash) => {
+                bcrypt.hash(req.body.password, salt, (err, hash) => {
                     if (!err) {
                         let obj = {
                             email: req.body.email,
@@ -51,12 +51,11 @@ class User {
                             kondisiKesehatan: req.body.kondisiKesehatan,
                             Agama: req.body.Agama,
                             Aliran: req.body.Aliran,
-                            password: hash
+                            password: hash,
+                            role:req.body.role || 'user'
                         }
                         Model.create(obj, (err, rows) => {
                             if (!err) {
-                                var nodemailer = require('nodemailer');
-
                                 let transporter = nodemailer.createTransport({
                                     service: 'gmail',
                                     secure: false,
@@ -73,7 +72,7 @@ class User {
                                 const email = rows.email
                                 const emailContent = JSON.stringify(rows)
                                 let HelperOptions = {
-                                    from: '"alang" <john@gmail.com',
+                                    from: '"alang" <alangmahendra@gmail.com>',
                                     to: email,
                                     subject: 'test nodemailer',
                                     text: emailContent
@@ -89,14 +88,17 @@ class User {
                                 res.status(200).json({ message: 'user has been created', data: rows })
 
                             } else {
+                                console.log('1',err)
                                 res.status(500).json({ message: err })
                             }
                         })
                     } else {
+                        console.log('2',err)
                         res.status(500).json({ message: err })
                     }
                 })
             } else {
+                console.log('3',err)
                 res.status(500).json({ message: err })
             }
         })

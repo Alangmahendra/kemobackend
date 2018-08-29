@@ -40,10 +40,10 @@ const userSchema = new Schema({
     kondisiKesehatan:{
         type:String
     },
-    Agama:{
+    agama:{
         type:String
     },
-    Aliran:{
+    aliran:{
        type:String
     },
     gender:{
