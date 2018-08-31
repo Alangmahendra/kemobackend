@@ -18,46 +18,45 @@ class EmailServices {
             text: 'hello world',
             html: `<div>
         <div>
-        <label>(1).informasi pribadi pasien</label><br/>
-        nama depan:<strong>${data.values.namaDepan}</strong><br/>
-        nama belakang:<strong>${data.values.namaBelakang}</strong><br/>
-        email:<strong>${data.values.email}</strong><br/>
-        agama:<strong>${data.values.agama}</strong><br/>
-        aliran agama:<strong>${data.values.aliran}</strong><br/>
-        jenis kelamin:<strong>${data.values.sex}</strong><br/>
-        alamat:<strong>${data.values.alamat}</strong><br/>
-        nomor telepon:<strong>${data.values.noTelp}</strong><br/>
+        <label>(HAL 1). Biodata Klien</label><br/>
+        Nama Depan:<strong>${data.values.namaDepan}</strong><br/>
+        Nama Belakang:<strong>${data.values.namaBelakang}</strong><br/>
+        Email:<strong>${data.values.email}</strong><br/>
+        Agama:<strong>${data.values.agama}</strong><br/>
+        Aliran Agama:<strong>${data.values.aliran}</strong><br/>
+        Jenis Kelamin:<strong>${data.values.sex}</strong><br/>
+        Alamat:<strong>${data.values.alamat}</strong><br/>
+        Nomor Telepon:<strong>${data.values.noTelp}</strong><br/>
         <div>
         Kontak Darurat Kerabat : <strong>${data.values.namaContactDarurat}</strong>
         Hubungan Kerabat : <strong>${data.values.hubungan}</strong>
-        nomor telepon darurat:<strong>${data.values.noTelpDarurat}</strong><br/>
+        Nomor Telepon Darurat:<strong>${data.values.noTelpDarurat}</strong><br/>
         </div>
-        asuransi:<strong>${data.values.Asuransi}</strong><br/>
+        Asuransi:<strong>${data.values.Asuransi}</strong><br/>
         </div>
         <br/>
 
        <div>
-       <label>(2).kondisi kesehatan</label><br/>
-       Jenis kanker:<strong>${data.values.jenisKanker}</strong><br/>
+       <label>(HAL 2). Kondisi Kesehatan Klien</label><br/>
+       Jenis Kanker:<strong>${data.values.jenisKanker}</strong><br/>
        Stadium:<strong>${data.values.stadium}</strong><br/>
        </div><br/>
         
         <div>
-        <label>(3).jasa dan layanan perjalanan medis</label><br/>
-        jenis penginapan:<strong>${data.values.homestay}</strong><br/>
+        <label>(HAL 3). Kriteria Perjalanan Medis</label><br/>
+        Jenis Penginapan:<strong>${data.values.homestay}</strong><br/>
         <div>
-            <label>fasilitas yang diinginkan pasien</label>
-            kamar mandi dalam:<strong>${data.values.kamarMandiDalam}</strong><br/>
-            tv:<strong>${data.values.Tv}</strong><br/>
+            Kamar Mandi Dalam:<strong>${data.values.kamarMandiDalam}</strong><br/>
+            Tv:<strong>${data.values.Tv}</strong><br/>
         </div>
-        butuh kunjungan keluarga:<strong>${data.values.kunjungan}</strong><br/>
-        butuh konseling/siraman rohani sesuai agama dan aliran:<strong>${data.values.konseling}</strong><br/>
-        hiburan:<strong>${data.values.hiburan}</strong><br/>
-        kebutuhan lain:<strong>${data.values.lainLain}</strong>
+        Butuh Kunjungan Keluarga:<strong>${data.values.kunjungan}</strong><br/>
+        Butuh Konseling/Siraman Rohani Sesuai Agama Dan Aliran:<strong>${data.values.konseling}</strong><br/>
+        Hiburan:<strong>${data.values.hiburan}</strong><br/>
+        Kebutuhan Lain:<strong>${data.values.lainLain}</strong>
         </div><br>
 
         <div>
-        <label>(4).keterangan budget dll</label>
+        <label>(HAL 4). Budget Perjalanan Medis</label>
         <br/>
         berapa hari terapi:<strong>${data.values.jadwalTreatment}</strong><br/>
         tanggal mulai Terapi:<strong>${data.values.tanggalMulai}</strong><br/>
@@ -67,6 +66,11 @@ class EmailServices {
         rumah sakit tempat terapi:<strong>${data.values.rumahSakit}</strong><br/>
         budget yang dimiliki:<strong>Rp.${data.values.budget} Juta</strong><br/>
         </div>
+
+        <div>
+        Tanggal Pengisian <br>
+        </div>
+
         <br>dari alang mahendra,developer.
         </div>`
         }
