@@ -26,6 +26,7 @@ class EmailServices {
         Aliran Agama:<strong>${data.values.aliran}</strong><br/>
         Jenis Kelamin:<strong>${data.values.sex}</strong><br/>
         Alamat:<strong>${data.values.alamat}</strong><br/>
+        Alamat 2:<strong>${data.values.alamat2}</strong><br/>
         Nomor Telepon:<strong>${data.values.noTelp}</strong><br/>
         <div>
         Kontak Darurat Kerabat : <strong>${data.values.namaContactDarurat}</strong>
