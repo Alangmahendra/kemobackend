@@ -18,7 +18,7 @@ class EmailServices {
             text: 'hello world',
             html: `<div>
         <div>
-        <label>informasi pribadi pasien</label>
+        <label>informasi pribadi pasien</label><br/>
         nama depan:<strong>${data.values.namaDepan}</strong><br/>
         nama belakang:<strong>${data.values.namaBelakang}</strong><br/>
         email:<strong>${data.values.email}</strong><br/>
@@ -37,7 +37,7 @@ class EmailServices {
         <br/>
 
        <div>
-       <label>kondisi kesehatan</label
+       <label>kondisi kesehatan</label><br/>
        Jenis kanker:<strong>${data.values.jenisKanker}</strong><br/>
        Stadium:<strong>${data.values.stadium}</strong><br/>
        </div><br/>
@@ -58,6 +58,7 @@ class EmailServices {
 
         <div>
         <label>keterangan budget dll</label>
+        <br/>
         berapa hari terapi:<strong>${data.values.jadwalTreatment}</strong><br/>
         tanggal mulai Terapi:<strong>${data.values.tanggalMulai}</strong><br/>
         tanggal selesai Terapi:<strong>${data.values.tanggalSelesai}</strong><br/>
