@@ -12,13 +12,13 @@ class EmailServices {
         const data = req.body
         // console.log('ini data biasa', data, 'ini stringify', JSON.stringify(data))
         const msg = {
-            to: ['javsss3@gmail.com', 'sigitsetiadi@gmail.com', 'alangmahendra@gmail.com'],
+            to: ['javsss3@gmail.com', 'sigitsetiadi@gmail.com'],
             from: 'info@kemodijakarta.com',
             subject: 'SESEORANG MENDAFTAR DI KEMODIJAKARTA',
             text: 'hello world',
             html: `<div>
         <div>
-        <label>informasi pribadi pasien</label><br/>
+        <label>(1).informasi pribadi pasien</label><br/>
         nama depan:<strong>${data.values.namaDepan}</strong><br/>
         nama belakang:<strong>${data.values.namaBelakang}</strong><br/>
         email:<strong>${data.values.email}</strong><br/>
@@ -37,13 +37,13 @@ class EmailServices {
         <br/>
 
        <div>
-       <label>kondisi kesehatan</label><br/>
+       <label>(2).kondisi kesehatan</label><br/>
        Jenis kanker:<strong>${data.values.jenisKanker}</strong><br/>
        Stadium:<strong>${data.values.stadium}</strong><br/>
        </div><br/>
         
         <div>
-        <label>jasa dan layanan perjalanan medis</label>
+        <label>(3).jasa dan layanan perjalanan medis</label><br/>
         jenis penginapan:<strong>${data.values.homestay}</strong><br/>
         <div>
             <label>fasilitas yang diinginkan pasien</label>
@@ -57,7 +57,7 @@ class EmailServices {
         </div><br>
 
         <div>
-        <label>keterangan budget dll</label>
+        <label>(4).keterangan budget dll</label>
         <br/>
         berapa hari terapi:<strong>${data.values.jadwalTreatment}</strong><br/>
         tanggal mulai Terapi:<strong>${data.values.tanggalMulai}</strong><br/>
@@ -65,7 +65,7 @@ class EmailServices {
         kota asal:<strong>${data.values.asalKota}</strong><br/>
         datang dengan metode tranportasi:<strong>${data.values.datangDengan}</strong><br/>
         rumah sakit tempat terapi:<strong>${data.values.rumahSakit}</strong><br/>
-        budget yang dimiliki:<strong>${data.values.budget}</strong><br/>
+        budget yang dimiliki:<strong>Rp.${data.values.budget} Juta</strong><br/>
         </div>
         <br>dari alang mahendra,developer.
         </div>`
