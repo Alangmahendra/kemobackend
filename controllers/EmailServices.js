@@ -57,6 +57,7 @@ class EmailServices {
         </div><br>
 
         <div>
+        <label>keterangan budget dll</label>
         berapa hari terapi:<strong>${data.values.jadwalTreatment}</strong><br/>
         tanggal mulai Terapi:<strong>${data.values.tanggalMulai}</strong><br/>
         tanggal selesai Terapi:<strong>${data.values.tanggalSelesai}</strong><br/>
