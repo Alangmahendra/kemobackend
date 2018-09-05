@@ -26,11 +26,11 @@ class EmailServices {
         Aliran Agama:<strong>${data.values.aliran}</strong><br/>
         Jenis Kelamin:<strong>${data.values.sex}</strong><br/>
         Alamat:<strong>${data.values.alamat}</strong><br/>
-        Alamat 2:<strong>${data.values.alamat2}</strong><br/>
+        Provinsi Dan Kota:<strong>${data.values.alamat2}</strong><br/>
         Nomor Telepon:<strong>${data.values.noTelp}</strong><br/>
         <div>
-        Kontak Darurat Kerabat : <strong>${data.values.namaContactDarurat}</strong>
-        Hubungan Kerabat : <strong>${data.values.hubungan}</strong>
+        Kontak Darurat Kerabat : <strong>${data.values.namaContactDarurat}</strong><br/>
+        Hubungan Kerabat : <strong>${data.values.hubungan}</strong><br/>
         Nomor Telepon Darurat:<strong>${data.values.noTelpDarurat}</strong><br/>
         </div>
         Asuransi:<strong>${data.values.Asuransi}</strong><br/>
@@ -49,6 +49,10 @@ class EmailServices {
         <div>
             Kamar Mandi Dalam:<strong>${data.values.kamarMandiDalam}</strong><br/>
             Tv:<strong>${data.values.Tv}</strong><br/>
+            Wifi:<strong>${data.values.wifi}</strong><br/>
+            Perawat:<strong>${data.values.perawat}</strong><br/>
+            Alat Kesehatan:<strong>${data.values.alkes}</strong><br/>
+            Edukasi Kanker:<strong>${data.values.edukasi}</strong><br/>
         </div>
         Butuh Kunjungan Keluarga:<strong>${data.values.kunjungan}</strong><br/>
         Butuh Konseling/Siraman Rohani Sesuai Agama Dan Aliran:<strong>${data.values.konseling}</strong><br/>
