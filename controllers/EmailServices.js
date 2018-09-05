@@ -10,78 +10,259 @@ class EmailServices {
     static send(req, res) {
         sgMail.setApiKey(process.env.SENDGRID_KEY)
         const data = req.body
-        // console.log('ini data biasa', data, 'ini stringify', JSON.stringify(data))
+        
+        const apagitu = (kamarMandiDalam,Tv,wifi,perawat,alkes,edukasi,kunjungan,konseling) =>{
+            let fasilitasStr=[]
+            if(kamarMandiDalam === true){
+                fasilitasStr.push('Kamar Mandi Dalam')
+            }
+            if(Tv === true){
+                fasilitasStr.push('Tv')
+            }
+            if(wifi === true){
+                fasilitasStr.push('wifi')
+            }
+            if(perawat === true){
+                fasilitasStr.push('perawat 24 Jam')
+            }
+            if(alkes === true){
+                fasilitasStr.push('Alat Kesehatan')
+            }
+            if(edukasi === true){
+                fasilitasStr.push('Edukasi Kanker')
+            }
+            if(kunjungan === true){
+                fasilitasStr.push('Kunjungan Keluarga')
+            }
+            if(konseling === true){
+                fasilitasStr.push('Konseling/Siraman Rohani')
+            }
+            return fasilitasStr.join(', ')
+        }
+
+        const apasih = (lainLain) =>{
+            if(lainLain !== undefined){
+                return lainLain
+            }else{
+                return "tidak ada"
+            }
+        }
+
         const msg = {
-            to: ['javsss3@gmail.com', 'sigitsetiadi@gmail.com'],
-            from: 'info@kemodijakarta.com',
+            to: 'info@kemodijakarta.com',
+            from: 'userform@kemodijakarta.com',
             subject: 'SESEORANG MENDAFTAR DI KEMODIJAKARTA',
             text: 'hello world',
             html: `<div>
+            <table border="1">
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        <center>Biodata Klien</center>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nama Depan</td>
+                    <td>${data.values.namaDepan}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Nama Belakang</td>
+                    <td>${data.values.namaBelakang}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Tanggal Lahir</td>
+                    <td>${data.values.tglLahir}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Email</td>
+                    <td>${data.values.email}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Agama</td>
+                    <td>${data.values.agama}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Aliran</td>
+                    <td>${data.values.aliran}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>${data.values.sex}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Alamat</td>
+                    <td>${data.values.alamat}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Alamat2</td>
+                    <td>${data.values.alamat2}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Nomor Kontak/Hp</td>
+                    <td>${data.values.noTelp}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Asuransi</td>
+                    <td>${data.values.Asuransi}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Nama Dari Kontak Darurat</td>
+                    <td>${data.values.namaContactDarurat}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Hubungan Kekerabatan dengan ${data.values.namaContactDarurat}</td>
+                    <td>${data.values.hubungan}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Nomor Kontak Darurat (${data.values.namaContactDarurat}) </td>
+                    <td>${data.values.noTelpDarurat}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
         <div>
-        <label>(HAL 1). Biodata Klien</label><br/>
-        Nama Depan:<strong>${data.values.namaDepan}</strong><br/>
-        Nama Belakang:<strong>${data.values.namaBelakang}</strong><br/>
-        Email:<strong>${data.values.email}</strong><br/>
-        Agama:<strong>${data.values.agama}</strong><br/>
-        Aliran Agama:<strong>${data.values.aliran}</strong><br/>
-        Jenis Kelamin:<strong>${data.values.sex}</strong><br/>
-        Alamat:<strong>${data.values.alamat}</strong><br/>
-        Provinsi Dan Kota:<strong>${data.values.alamat2}</strong><br/>
-        Nomor Telepon:<strong>${data.values.noTelp}</strong><br/>
-        <div>
-        Kontak Darurat Kerabat : <strong>${data.values.namaContactDarurat}</strong><br/>
-        Hubungan Kerabat : <strong>${data.values.hubungan}</strong><br/>
-        Nomor Telepon Darurat:<strong>${data.values.noTelpDarurat}</strong><br/>
-        </div>
-        Asuransi:<strong>${data.values.Asuransi}</strong><br/>
+        <table border="1">
+        <thead>
+            <tr>
+                <th colspan="2">
+                    <center>Kondisi Kesehatan Klien</center>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Jenis Kanker</td>
+                <td>${data.values.jenisKanker}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>Stadium</td>
+                <td>${data.values.stadium}</td>
+            </tr>
+        </tbody>
+    </table>
         </div>
         <br/>
-
-       <div>
-       <label>(HAL 2). Kondisi Kesehatan Klien</label><br/>
-       Jenis Kanker:<strong>${data.values.jenisKanker}</strong><br/>
-       Stadium:<strong>${data.values.stadium}</strong><br/>
-       </div><br/>
-        
         <div>
-        <label>(HAL 3). Kriteria Perjalanan Medis</label><br/>
-        Jenis Penginapan:<strong>${data.values.homestay}</strong><br/>
-        <div>
-            Kamar Mandi Dalam:<strong>${data.values.kamarMandiDalam}</strong><br/>
-            Tv:<strong>${data.values.Tv}</strong><br/>
-            Wifi:<strong>${data.values.wifi}</strong><br/>
-            Perawat:<strong>${data.values.perawat}</strong><br/>
-            Alat Kesehatan:<strong>${data.values.alkes}</strong><br/>
-            Edukasi Kanker:<strong>${data.values.edukasi}</strong><br/>
+        <table border="1">
+        <thead>
+            <tr>
+                <th colspan="2">
+                    <center>Fasilitas Perjalanan</center>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Jenis Penginapan</td>
+                <td>${data.values.homestay}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>Fasilitas</td>
+                <td>
+                ${ apagitu(data.values.kamarMandiDalam,data.values.Tv,data.values.wifi,data.values.perawat,data.values.alkes,data.values.edukasi,data.values.kunjungan,data.values.konseling) }
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>Kebutuhan Lain</td>
+                <td>${apasih(data.values.lainLain)}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
+    <div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th colspan="2">
+                    <center>Budget Perjalanan Medis</center>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lama Terapi Dalam Hari</td>
+                <td>${data.values.jadwalTreatment}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>Tanggal Mulai Terapi</td>
+                <td>${data.values.tanggalMulai}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>Tanggal Selesai Terapi </td>
+                <td>${data.values.tanggalSelesai}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>Kota Asal</td>
+                <td>${data.values.asalKota}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>Metode Kedatangan Ke Jakarta</td>
+                <td>${data.values.datangDengan}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>Rumah Sakit Tempat Terapi</td>
+                <td>${data.values.rumahSakit}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>Budget (Dalam Juta)</td>
+                <td>Rp.${data.values.budget}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
         </div>
-        Butuh Kunjungan Keluarga:<strong>${data.values.kunjungan}</strong><br/>
-        Butuh Konseling/Siraman Rohani Sesuai Agama Dan Aliran:<strong>${data.values.konseling}</strong><br/>
-        Hiburan:<strong>${data.values.hiburan}</strong><br/>
-        Kebutuhan Lain:<strong>${data.values.lainLain}</strong>
-        </div><br>
-
-        <div>
-        <label>(HAL 4). Budget Perjalanan Medis</label>
-        <br/>
-        berapa hari terapi:<strong>${data.values.jadwalTreatment}</strong><br/>
-        tanggal mulai Terapi:<strong>${data.values.tanggalMulai}</strong><br/>
-        tanggal selesai Terapi:<strong>${data.values.tanggalSelesai}</strong><br/>
-        kota asal:<strong>${data.values.asalKota}</strong><br/>
-        datang dengan metode tranportasi:<strong>${data.values.datangDengan}</strong><br/>
-        rumah sakit tempat terapi:<strong>${data.values.rumahSakit}</strong><br/>
-        budget yang dimiliki:<strong>Rp.${data.values.budget} Juta</strong><br/>
-        </div>
-
-        <div>
-        Tanggal Pengisian <br>
-        </div>
-
-        <br>dari alang mahendra,developer.
-        </div>`
+            </div>`
         }
-        sgMail.send(msg).then(() => {
+        sgMail.send(msg).then((gotcha) => {
             res.status(200).json({ message: "email terkirim" })
-        }).catch(() => {
+        }).catch((error) => {
+            console.log
             res.status(500).json({ message: 'error' })
         })
     }
