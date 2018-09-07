@@ -52,7 +52,7 @@ class EmailServices {
             to: 'info@kemodijakarta.com',
             from: 'userform@kemodijakarta.com',
             subject: 'SESEORANG MENDAFTAR DI KEMODIJAKARTA',
-            text: 'hello world',
+            text: 'SESEORANG MENDAFTAR DI FORM KEMODIJAKARTA',
             html: `<div>
             <table border="1">
             <thead>

@@ -11,13 +11,14 @@ class BukuTamu{
         }
         Model.create(obj,(err,rows)=>{
             if(!err){
+                sgMail.setApiKey(process.env.SENDGRID_KEY)
                 const msg = {
                     to: ['info@kemodijakarta.com','alangmahendra@gmail.com'],
                     from: 'kontakform@kemodijakarta.com',
-                    subject: 'SEEORANG MENGIRIM PESAN DARI KONTAK KEMODIJAKARTA',
-                    text: 'hello world',
+                    subject: 'SESEORANG MENGIRIM PESAN DARI KONTAK KEMODIJAKARTA',
+                    text: 'SESEORANG MENGIRIM PESAN LEWAT FORM KONTAK KEMODIJAKARTA',
                     html:`<div>
-                    <table>
+                    <table border>
                         <thead>
                             <tr>
                                 <th colspan="2">PESAN</th>
@@ -45,12 +46,14 @@ class BukuTamu{
                     </div>`
                 }
                 sgMail.send(msg).then((rows) => {
-                    res.status(200).json({ message: "email terkirim",data:rows })
+                    console.log(rows)
+                    res.status(200).json({ message: "email terkirim"})
                 }).catch((error) => {
-                    console.log
-                    res.status(500).json({ message: 'error' })
+                    console.log(error)
+                    res.status(500).json({ message: error })
                 })
             }else{
+                conslole.log(err)
                 res.status(500).json({message:err})
             }
         })
