@@ -13,7 +13,7 @@ class BukuTamu{
             if(!err){
                 sgMail.setApiKey(process.env.SENDGRID_KEY)
                 const msg = {
-                    to: ['info@kemodijakarta.com','alangmahendra@gmail.com'],
+                    to: ['info@kemodijakarta.com'],
                     from: 'kontakform@kemodijakarta.com',
                     subject: 'SESEORANG MENGIRIM PESAN DARI KONTAK KEMODIJAKARTA',
                     text: 'SESEORANG MENGIRIM PESAN LEWAT FORM KONTAK KEMODIJAKARTA',
@@ -24,7 +24,6 @@ class BukuTamu{
                                 <th colspan="2">PESAN</th>
                             </tr>
                         </thead>
-                    </table>
                     <tbody>
                         <tr>
                             <td>Nama</td>
@@ -43,6 +42,7 @@ class BukuTamu{
                             <td>${rows.pesan}</td>
                         </tr>
                     <tbody>
+                    </table>
                     </div>`
                 }
                 sgMail.send(msg).then((rows) => {
