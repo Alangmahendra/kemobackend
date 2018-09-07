@@ -15,7 +15,7 @@ class BukuTamu{
                 const msg = {
                     to: ['info@kemodijakarta.com'],
                     from: 'kontakform@kemodijakarta.com',
-                    subject: 'SESEORANG MENGIRIM PESAN DARI KONTAK KEMODIJAKARTA',
+                    subject: `[KONTAK] - ${rows.nama}`,
                     text: 'SESEORANG MENGIRIM PESAN LEWAT FORM KONTAK KEMODIJAKARTA',
                     html:`<div>
                     <table border>

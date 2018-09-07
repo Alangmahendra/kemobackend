@@ -51,7 +51,7 @@ class EmailServices {
         const msg = {
             to: 'info@kemodijakarta.com',
             from: 'userform@kemodijakarta.com',
-            subject: 'SESEORANG MENDAFTAR DI KEMODIJAKARTA',
+            subject: `[DAFTAR] - ${data.values.namaDepan}`,
             text: 'SESEORANG MENDAFTAR DI FORM KEMODIJAKARTA',
             html: `<div>
             <table border="1">
