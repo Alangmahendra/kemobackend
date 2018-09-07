@@ -44,7 +44,7 @@ class BukuTamu{
                     <tbody>
                     </div>`
                 }
-                sgMail.send(msg).then((gotcha) => {
+                sgMail.send(msg).then((rows) => {
                     res.status(200).json({ message: "email terkirim",data:rows })
                 }).catch((error) => {
                     console.log
