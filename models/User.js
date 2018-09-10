@@ -2,60 +2,68 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
-    
+
 const userSchema = new Schema({
-    email : {
-        type:String,
-        required:true
+    email: {
+        type: String,
+        required: true
     },
-    username:{
-        type:String,
-        required:true,
+    username: {
+        type: String,
+        required: true,
     },
-    password: {
-        type:String,
-        required:true
-    },
-    alamat:{
+    password:{
         type:String
     },
-    notelp:{
+    alamat: {
+        type: String
+    },
+    notelp: {
+        type: String
+    },
+    namaDepan: {
+        type: String
+    },
+    namaBelakang: {
+        type: String
+    },
+    tanggalLahir: {
+        type: Date
+    },
+    jenisAsuransi: {
+        type: String
+    },
+    emergencyContact: {
+        type: String
+    },
+    namaEmergencyContact: {
+        type: String
+    },
+    hubunganKekerabatan: {
+        type: String
+    },
+    jenisKanker: {
+        type: String
+    },
+    stadiumKanker:{
         type:String
     },
-    namaDepan:{
-        type:String
+    agama: {
+        type: String
     },
-    namaBelakang:{
-        type:String
+    aliran: {
+        type: String
     },
-    tanggalLahir:{
-        type:Date
+    gender: {
+        type: String
     },
-    jenisAsuransi:{
-        type:String
-    },
-    emergencyContact:{
-        type:String
-    },
-    kondisiKesehatan:{
-        type:String
-    },
-    agama:{
-        type:String
-    },
-    aliran:{
-       type:String
-    },
-    gender:{
-        type:String
-    },
-    role:{
-        type:String,
-        required:true
+    role: {
+        type: String,
+        required: true
     },
 
-},{timestamps:{}})
+}, { timestamps: {} })
 
-const userModel = mongoose.model('userModel',userSchema)
+const userModel = mongoose.model('userModel', userSchema)
 
 module.exports = userModel

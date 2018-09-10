@@ -11,7 +11,7 @@ class User {
             if (err) {
                 res.status({ message: err })
             } else {
-                bcrypt.compare(req.body.password, user.password, (err, rows) => {
+                bcrypt.compare(req.body.email, user.email, (err, rows) => {
                     if (!err) {
                         let payload = {
                             _id: user._id,

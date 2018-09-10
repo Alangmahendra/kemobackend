@@ -17,29 +17,14 @@ const AkomodasiSchema = new Schema({
     fasilitas: {
         type: String
     },
-    kebersihan: {
-        type: String
-    },
-    transportasi: {
-        type: String
-    },
     kunjunganKeluarga: {
-        type: Boolean
-    },
-    hiburan: {
         type: String
     },
     konseling: {
-        type: Boolean
+        type: String
     },
     lainLain: {
         type: String
-    },
-    suplemen: {
-        type: String
-    },
-    vegetarian:{
-        type:Boolean
     },
     budget:{
         type:String

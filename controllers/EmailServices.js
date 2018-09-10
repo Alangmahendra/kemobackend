@@ -1,4 +1,3 @@
-const ModelEmail = require('../models/EmailServices')
 const ModelAkomodasi = require('../models/Akomodasi')
 const ModelUser = require('../models/User')
 
@@ -49,7 +48,7 @@ class EmailServices {
         }
 
         const msg = {
-            to: 'info@kemodijakarta.com',
+            to: 'alangmahendra@gmail.com',
             from: 'userform@kemodijakarta.com',
             subject: `[DAFTAR] - ${data.values.namaDepan}`,
             text: 'SESEORANG MENDAFTAR DI FORM KEMODIJAKARTA',
@@ -260,9 +259,21 @@ class EmailServices {
             </div>`
         }
         sgMail.send(msg).then((gotcha) => {
-            res.status(200).json({ message: "email terkirim" })
+            ModelUser.findOne({email:data.values.email})
+            .then(user =>{
+                if(!user){
+                    let password = Math.random().toString(36).substr(2,6)
+                    let obj ={
+                        email:data.values.email,
+                        namaDepan:data.values.namaDepan,
+                        namaBelakang:data.values.namaBelakang,
+                        
+                    }
+                    ModelUser.create()
+                }
+            })
         }).catch((error) => {
-            console.log
+            console.log(error)
             res.status(500).json({ message: 'error' })
         })
     }
