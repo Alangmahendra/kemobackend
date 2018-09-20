@@ -7,24 +7,31 @@ const AkomodasiSchema = new Schema({
         ref: 'userModel'
     },
     homstay: {
-        type: Schema.Types.ObjectId,
-        ref: 'homstay'
+        type: String
     },
     rumahSakit: {
-        type: Schema.Types.ObjectId,
-        ref: 'rumahsakit'
+        type: String
     },
     fasilitas: {
         type: String
     },
-    kunjunganKeluarga: {
-        type: String
-    },
-    konseling: {
-        type: String
-    },
     lainLain: {
         type: String
+    },
+    jadwalTreatment:{
+        type:String
+    },
+    tanggalMulai:{
+        type:String
+    },
+    tanggalSelesai:{
+        type:String
+    },
+    asalKota:{
+        type:String
+    },
+    datangDengan:{
+        type:String
     },
     budget:{
         type:String

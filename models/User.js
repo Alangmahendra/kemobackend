@@ -18,7 +18,10 @@ const userSchema = new Schema({
     alamat: {
         type: String
     },
-    notelp: {
+    kota:{
+        type:String
+    },
+    noTelp: {
         type: String
     },
     namaDepan: {
@@ -27,10 +30,10 @@ const userSchema = new Schema({
     namaBelakang: {
         type: String
     },
-    tanggalLahir: {
+    tgllLahir: {
         type: Date
     },
-    jenisAsuransi: {
+    Asuransi: {
         type: String
     },
     emergencyContact: {

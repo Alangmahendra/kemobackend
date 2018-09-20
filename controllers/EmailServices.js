@@ -258,7 +258,7 @@ class EmailServices {
         </div>
             </div>`
         }
-        sgMail.send(msg).then((gotcha) => {
+        sgMail.send(msg).then(gotcha => {
             ModelUser.findOne({email:data.values.email})
             .then(user =>{
                 if(!user){
@@ -266,10 +266,50 @@ class EmailServices {
                     let obj ={
                         email:data.values.email,
                         namaDepan:data.values.namaDepan,
-                        namaBelakang:data.values.namaBelakang,
-                        
+                        namaBelakang:data.values.namaBelakang,username:data.values.namaDepan+data.values.namaBelakang,
+                        password:password,
+                        alamat:data.values.alamat,
+                        kota:data.values.alamat2,
+                        noTelp:data.values.noTelp,
+                        tanggalLahir:data.values.tglLahir,
+                        Asuransi:data.values.Asuransi,
+                        emergencyContact:data.values.noTelpDarurat,
+                        namaEmergencyContact:data.values.namaContactDarurat,
+                        hubunganKekerabatan:data.values.hubungan,
+                        jenisKanker:data.values.jenisKanker,
+                        stadiumKanker:data.values.stadium,
+                        agama:data.values.agama,
+                        aliran:data.values.aliran,
+                        gender:data.values.sex,
+                        role: 'user'
                     }
-                    ModelUser.create()
+                    ModelUser.create(obj).then(profile=>{
+                        let obj = {
+                            userId:profile._id,
+                            jadwalTreatment:data.values.jadwalTreatment,
+                            tanggalMulai:data.values.tanggalMulai,
+                            tanggalSelesai:data.values.tanggalSelesai,
+                            asalKota:data.values.asalKota,
+                            datangDengan:data.values.datangDengan,
+                            homestay:data.values.homestay,
+                            rumahSakit:data.values.rumahSakit,
+                            budget:data.values.budget,
+                            lainLain:data.values.lainLain,
+                            fasilitas:apagitu(data.values.Tv,data.values.kamarMandiDalam,data.values.wifi,data.values.perawat,data.values.alkes,data.values.edukasi,data.values.kunjungan,data.values.konseling
+                        )
+                        }
+                        ModelAkomodasi.create(obj).then(userFasilitas=>{
+                            res.status(200).json({mail:gotcha, message: "email terkirim",userProfile:profile,fasilitasUser:userFasilitas})
+                        }).catch(err=>{
+                            console.log(err)
+                            res.status(500).json({message:err})
+                        })
+                    }).catch(err=>{
+                        console.log(err)
+                        res.status(500).json({message:err})
+                    })
+                }else{
+                    res.send('email sudah terdaftar')
                 }
             })
         }).catch((error) => {

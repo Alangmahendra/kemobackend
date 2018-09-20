@@ -16,13 +16,11 @@ const scheduleSchema = new Schema({
         type:String,
         required:true
     },
-    startDate:{
+    tangalMulain:{
         type:Date,
-        required:true
     },
-    endDate:{
+    tanggalSelesai:{
         type:Date,
-        required:true
     },
     scheduleComplete:Boolean
 },{timestamps:{}})
