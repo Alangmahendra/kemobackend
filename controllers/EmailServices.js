@@ -271,13 +271,13 @@ class EmailServices {
         </tbody>
         <tbody>
         <tr>
-            <td>Budget (Dalam Juta)</td>
+            <td>Jenis Brosur</td>
             <td>Rp.${data.values.brosur}</td>
         </tr>
     </tbody>
     <tbody>
     <tr>
-        <td>Budget (Dalam Juta)</td>
+        <td>Kode Brosur</td>
         <td>Rp.${data.values.kodeBrosur}</td>
     </tr>
 </tbody>
