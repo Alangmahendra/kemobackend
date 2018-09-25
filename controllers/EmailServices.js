@@ -1,59 +1,67 @@
-const ModelEmail = require('../models/EmailServices')
-const ModelAkomodasi = require('../models/Akomodasi')
-const ModelUser = require('../models/User')
+const ModelEmail = require("../models/EmailServices");
+const ModelAkomodasi = require("../models/Akomodasi");
+const ModelUser = require("../models/User");
 
-const sgMail = require('@sendgrid/mail')
-require('dotenv').config()
-
+const sgMail = require("@sendgrid/mail");
+require("dotenv").config();
 
 class EmailServices {
-    static send(req, res) {
-        sgMail.setApiKey(process.env.SENDGRID_KEY)
-        const data = req.body
-        
-        const apagitu = (kamarMandiDalam,Tv,wifi,perawat,alkes,edukasi,kunjungan,konseling) =>{
-            let fasilitasStr=[]
-            if(kamarMandiDalam === true){
-                fasilitasStr.push('Kamar Mandi Dalam')
-            }
-            if(Tv === true){
-                fasilitasStr.push('Tv')
-            }
-            if(wifi === true){
-                fasilitasStr.push('wifi')
-            }
-            if(perawat === true){
-                fasilitasStr.push('perawat 24 Jam')
-            }
-            if(alkes === true){
-                fasilitasStr.push('Alat Kesehatan')
-            }
-            if(edukasi === true){
-                fasilitasStr.push('Edukasi Kanker')
-            }
-            if(kunjungan === true){
-                fasilitasStr.push('Kunjungan Keluarga')
-            }
-            if(konseling === true){
-                fasilitasStr.push('Konseling/Siraman Rohani')
-            }
-            return fasilitasStr.join(', ')
-        }
+  static send(req, res) {
+    sgMail.setApiKey(process.env.SENDGRID_KEY);
+    const data = req.body;
 
-        const apasih = (lainLain) =>{
-            if(lainLain !== undefined){
-                return lainLain
-            }else{
-                return "tidak ada"
-            }
-        }
+    const apagitu = (
+      kamarMandiDalam,
+      Tv,
+      wifi,
+      perawat,
+      alkes,
+      edukasi,
+      kunjungan,
+      konseling
+    ) => {
+      let fasilitasStr = [];
+      if (kamarMandiDalam === true) {
+        fasilitasStr.push("Kamar Mandi Dalam");
+      }
+      if (Tv === true) {
+        fasilitasStr.push("Tv");
+      }
+      if (wifi === true) {
+        fasilitasStr.push("wifi");
+      }
+      if (perawat === true) {
+        fasilitasStr.push("perawat 24 Jam");
+      }
+      if (alkes === true) {
+        fasilitasStr.push("Alat Kesehatan");
+      }
+      if (edukasi === true) {
+        fasilitasStr.push("Edukasi Kanker");
+      }
+      if (kunjungan === true) {
+        fasilitasStr.push("Kunjungan Keluarga");
+      }
+      if (konseling === true) {
+        fasilitasStr.push("Konseling/Siraman Rohani");
+      }
+      return fasilitasStr.join(", ");
+    };
 
-        const msg = {
-            to: 'info@kemodijakarta.com',
-            from: 'userform@kemodijakarta.com',
-            subject: `[DAFTAR] - ${data.values.namaDepan}`,
-            text: 'SESEORANG MENDAFTAR DI FORM KEMODIJAKARTA',
-            html: `<div>
+    const apasih = lainLain => {
+      if (lainLain !== undefined) {
+        return lainLain;
+      } else {
+        return "tidak ada";
+      }
+    };
+
+    const msg = {
+      to: "info@kemodijakarta.com",
+      from: "userform@kemodijakarta.com",
+      subject: `[DAFTAR] - ${data.values.namaDepan}`,
+      text: "SESEORANG MENDAFTAR DI FORM KEMODIJAKARTA",
+      html: `<div>
             <table border="1">
             <thead>
                 <tr>
@@ -136,13 +144,17 @@ class EmailServices {
             </tbody>
             <tbody>
                 <tr>
-                    <td>Hubungan Kekerabatan dengan ${data.values.namaContactDarurat}</td>
+                    <td>Hubungan Kekerabatan dengan ${
+                      data.values.namaContactDarurat
+                    }</td>
                     <td>${data.values.hubungan}</td>
                 </tr>
             </tbody>
             <tbody>
                 <tr>
-                    <td>Nomor Kontak Darurat (${data.values.namaContactDarurat}) </td>
+                    <td>Nomor Kontak Darurat (${
+                      data.values.namaContactDarurat
+                    }) </td>
                     <td>${data.values.noTelpDarurat}</td>
                 </tr>
             </tbody>
@@ -191,7 +203,16 @@ class EmailServices {
             <tr>
                 <td>Fasilitas</td>
                 <td>
-                ${ apagitu(data.values.kamarMandiDalam,data.values.Tv,data.values.wifi,data.values.perawat,data.values.alkes,data.values.edukasi,data.values.kunjungan,data.values.konseling) }
+                ${apagitu(
+                  data.values.kamarMandiDalam,
+                  data.values.Tv,
+                  data.values.wifi,
+                  data.values.perawat,
+                  data.values.alkes,
+                  data.values.edukasi,
+                  data.values.kunjungan,
+                  data.values.konseling
+                )}
                 </td>
             </tr>
         </tbody>
@@ -249,6 +270,18 @@ class EmailServices {
             </tr>
         </tbody>
         <tbody>
+        <tr>
+            <td>Budget (Dalam Juta)</td>
+            <td>Rp.${data.values.brosur}</td>
+        </tr>
+    </tbody>
+    <tbody>
+    <tr>
+        <td>Budget (Dalam Juta)</td>
+        <td>Rp.${data.values.kodeBrosur}</td>
+    </tr>
+</tbody>
+        <tbody>
             <tr>
                 <td>Budget (Dalam Juta)</td>
                 <td>Rp.${data.values.budget}</td>
@@ -258,14 +291,17 @@ class EmailServices {
     </div>
         </div>
             </div>`
-        }
-        sgMail.send(msg).then((gotcha) => {
-            res.status(200).json({ message: "email terkirim" })
-        }).catch((error) => {
-            console.log
-            res.status(500).json({ message: 'error' })
-        })
-    }
+    };
+    sgMail
+      .send(msg)
+      .then(gotcha => {
+        res.status(200).json({ message: "email terkirim" });
+      })
+      .catch(error => {
+        console.log;
+        res.status(500).json({ message: "error" });
+      });
+  }
 }
 
-module.exports = EmailServices
+module.exports = EmailServices;
