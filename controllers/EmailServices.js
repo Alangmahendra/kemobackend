@@ -57,7 +57,7 @@ class EmailServices {
     };
 
     const msg = {
-      to: "info@kemodijakarta.com",
+      to: ["info@kemodijakarta.com","sigitsetiadi@gmail.com","alangmahendra@gmail.com"],
       from: "userform@kemodijakarta.com",
       subject: `[DAFTAR] - ${data.values.namaDepan}`,
       text: "SESEORANG MENDAFTAR DI FORM KEMODIJAKARTA",
